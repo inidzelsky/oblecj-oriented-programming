@@ -7,7 +7,7 @@ namespace Police
         public string Caller { get; }
         public string Address { get; }
         public bool IsUrgent { get; }
-        public string Details { get; }
+        public string? Details { get; }
 
         public Alert(string type, string caller, string address, bool isUrgent, string details)
         {

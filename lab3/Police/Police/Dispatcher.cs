@@ -45,7 +45,7 @@ namespace Police
         }
 
         // Creates the alert object and sends it to the listeners
-        public void Inform(string type, string caller, string address, bool isUrgent, string details = "")
+        public void Inform(string type, string caller, string address, bool isUrgent, string details = null)
         {
             Alert alert = new Alert(type, caller, address, isUrgent, details);
             this.Notify(alert);
