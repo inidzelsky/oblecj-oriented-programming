@@ -1,0 +1,11 @@
+D:\Study\OOP\CashBoxCards\CashBoxCards\bin\Debug\netcoreapp3.1\CashBoxCards.exe
+D:\Study\OOP\CashBoxCards\CashBoxCards\bin\Debug\netcoreapp3.1\CashBoxCards.deps.json
+D:\Study\OOP\CashBoxCards\CashBoxCards\bin\Debug\netcoreapp3.1\CashBoxCards.runtimeconfig.json
+D:\Study\OOP\CashBoxCards\CashBoxCards\bin\Debug\netcoreapp3.1\CashBoxCards.runtimeconfig.dev.json
+D:\Study\OOP\CashBoxCards\CashBoxCards\bin\Debug\netcoreapp3.1\CashBoxCards.dll
+D:\Study\OOP\CashBoxCards\CashBoxCards\bin\Debug\netcoreapp3.1\CashBoxCards.pdb
+D:\Study\OOP\CashBoxCards\CashBoxCards\obj\Debug\netcoreapp3.1\CashBoxCards.csprojAssemblyReference.cache
+D:\Study\OOP\CashBoxCards\CashBoxCards\obj\Debug\netcoreapp3.1\CashBoxCards.AssemblyInfoInputs.cache
+D:\Study\OOP\CashBoxCards\CashBoxCards\obj\Debug\netcoreapp3.1\CashBoxCards.AssemblyInfo.cs
+D:\Study\OOP\CashBoxCards\CashBoxCards\obj\Debug\netcoreapp3.1\CashBoxCards.dll
+D:\Study\OOP\CashBoxCards\CashBoxCards\obj\Debug\netcoreapp3.1\CashBoxCards.pdb

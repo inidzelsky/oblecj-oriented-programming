@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Animal.cs" t="Include" />
+      <e p="Animal.csproj" t="IncludeRecursive" />
+      <e p="Animal.sln" t="IncludeFlat" />
+      <e p="AnimalDecorator.cs" t="Include" />
+      <e p="AnimalTimer.cs" t="Include" />
+      <e p="bin" t="ExcludeRecursive" />
+      <e p="ConcreteAnimal.cs" t="Include" />
+      <e p="ConsoleController.cs" t="Include" />
+      <e p="GiraffeDecorator.cs" t="Include" />
+      <e p="IController.cs" t="Include" />
+      <e p="LionDecorator.cs" t="Include" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="PandaDecorator.cs" t="Include" />
+      <e p="Program.cs" t="Include" />
+      <e p="Properties" t="Include">
+        <e p="AssemblyInfo.cs" t="Include" />
+      </e>
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_Animal.1366524406.00" t="ExcludeRecursive" />
+  </component>
+</project>

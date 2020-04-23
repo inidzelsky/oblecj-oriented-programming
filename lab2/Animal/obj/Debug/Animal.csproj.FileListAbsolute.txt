@@ -1,0 +1,5 @@
+/Users/bismarck/Dropbox/Study/OOP/lab2/Animal/bin/Debug/Animal.exe
+/Users/bismarck/Dropbox/Study/OOP/lab2/Animal/bin/Debug/Animal.pdb
+/Users/bismarck/Dropbox/Study/OOP/lab2/Animal/obj/Debug/Animal.csprojAssemblyReference.cache
+/Users/bismarck/Dropbox/Study/OOP/lab2/Animal/obj/Debug/Animal.exe
+/Users/bismarck/Dropbox/Study/OOP/lab2/Animal/obj/Debug/Animal.pdb
