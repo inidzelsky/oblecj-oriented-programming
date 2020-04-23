@@ -1,0 +1,11 @@
+/Users/bismarck/Dropbox/Study/OOP/lab3/Police/Police/bin/Debug/netcoreapp3.1/Police
+/Users/bismarck/Dropbox/Study/OOP/lab3/Police/Police/bin/Debug/netcoreapp3.1/Police.deps.json
+/Users/bismarck/Dropbox/Study/OOP/lab3/Police/Police/bin/Debug/netcoreapp3.1/Police.runtimeconfig.json
+/Users/bismarck/Dropbox/Study/OOP/lab3/Police/Police/bin/Debug/netcoreapp3.1/Police.runtimeconfig.dev.json
+/Users/bismarck/Dropbox/Study/OOP/lab3/Police/Police/bin/Debug/netcoreapp3.1/Police.dll
+/Users/bismarck/Dropbox/Study/OOP/lab3/Police/Police/bin/Debug/netcoreapp3.1/Police.pdb
+/Users/bismarck/Dropbox/Study/OOP/lab3/Police/Police/obj/Debug/netcoreapp3.1/Police.csprojAssemblyReference.cache
+/Users/bismarck/Dropbox/Study/OOP/lab3/Police/Police/obj/Debug/netcoreapp3.1/Police.AssemblyInfoInputs.cache
+/Users/bismarck/Dropbox/Study/OOP/lab3/Police/Police/obj/Debug/netcoreapp3.1/Police.AssemblyInfo.cs
+/Users/bismarck/Dropbox/Study/OOP/lab3/Police/Police/obj/Debug/netcoreapp3.1/Police.dll
+/Users/bismarck/Dropbox/Study/OOP/lab3/Police/Police/obj/Debug/netcoreapp3.1/Police.pdb
