@@ -1,0 +1,11 @@
+/Users/bismarck/Dropbox/Study/OOP/lab4/ShipTransfer/bin/Debug/netcoreapp3.1/ShipTransfer
+/Users/bismarck/Dropbox/Study/OOP/lab4/ShipTransfer/bin/Debug/netcoreapp3.1/ShipTransfer.deps.json
+/Users/bismarck/Dropbox/Study/OOP/lab4/ShipTransfer/bin/Debug/netcoreapp3.1/ShipTransfer.runtimeconfig.json
+/Users/bismarck/Dropbox/Study/OOP/lab4/ShipTransfer/bin/Debug/netcoreapp3.1/ShipTransfer.runtimeconfig.dev.json
+/Users/bismarck/Dropbox/Study/OOP/lab4/ShipTransfer/bin/Debug/netcoreapp3.1/ShipTransfer.dll
+/Users/bismarck/Dropbox/Study/OOP/lab4/ShipTransfer/bin/Debug/netcoreapp3.1/ShipTransfer.pdb
+/Users/bismarck/Dropbox/Study/OOP/lab4/ShipTransfer/obj/Debug/netcoreapp3.1/ShipTransfer.csprojAssemblyReference.cache
+/Users/bismarck/Dropbox/Study/OOP/lab4/ShipTransfer/obj/Debug/netcoreapp3.1/ShipTransfer.AssemblyInfoInputs.cache
+/Users/bismarck/Dropbox/Study/OOP/lab4/ShipTransfer/obj/Debug/netcoreapp3.1/ShipTransfer.AssemblyInfo.cs
+/Users/bismarck/Dropbox/Study/OOP/lab4/ShipTransfer/obj/Debug/netcoreapp3.1/ShipTransfer.dll
+/Users/bismarck/Dropbox/Study/OOP/lab4/ShipTransfer/obj/Debug/netcoreapp3.1/ShipTransfer.pdb

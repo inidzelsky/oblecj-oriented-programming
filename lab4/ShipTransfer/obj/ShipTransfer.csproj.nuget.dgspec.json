@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/bismarck/Dropbox/Study/OOP/lab3/Police/Police/Police.csproj": {}
+    "/Users/bismarck/Dropbox/Study/OOP/lab4/ShipTransfer/ShipTransfer.csproj": {}
   },
   "projects": {
-    "/Users/bismarck/Dropbox/Study/OOP/lab3/Police/Police/Police.csproj": {
+    "/Users/bismarck/Dropbox/Study/OOP/lab4/ShipTransfer/ShipTransfer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/bismarck/Dropbox/Study/OOP/lab3/Police/Police/Police.csproj",
-        "projectName": "Police",
-        "projectPath": "/Users/bismarck/Dropbox/Study/OOP/lab3/Police/Police/Police.csproj",
+        "projectUniqueName": "/Users/bismarck/Dropbox/Study/OOP/lab4/ShipTransfer/ShipTransfer.csproj",
+        "projectName": "ShipTransfer",
+        "projectPath": "/Users/bismarck/Dropbox/Study/OOP/lab4/ShipTransfer/ShipTransfer.csproj",
         "packagesPath": "/Users/bismarck/.nuget/packages/",
-        "outputPath": "/Users/bismarck/Dropbox/Study/OOP/lab3/Police/Police/obj/",
+        "outputPath": "/Users/bismarck/Dropbox/Study/OOP/lab4/ShipTransfer/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/bismarck/.nuget/NuGet/NuGet.Config"
