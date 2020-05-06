@@ -1,10 +1,123 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
-
+using System.Net.NetworkInformation;
 
 namespace ShipTransfer
-{ 
+{
+    public interface IController
+    {
+        void ShowMenu();
+    }
+
+    public class ConsoleConroller : IController
+    {
+        private TransferInfo _transferInfo;
+
+        public ConsoleConroller(TransferInfo transferInfo)
+        {
+            _transferInfo = transferInfo;
+        }
+
+        public void ShowMenu()
+        {
+            Console.WriteLine("Ship Transfer Menu:\n" +
+                              "1 - Show all of the ships\n" +
+                              "2 - Show long rivers\n" +
+                              "3 - Show sorted companies\n" +
+                              "4 - Show ship and whether it is passenger one\n" +
+                              "5 - Show all the seas and rivers together\n" +
+                              "6 - Show ships grouped by the year\n" +
+                              "7 - Show only sea companies\n" +
+                              "8 - Show all companies with (if exist) their ships\n" +
+                              "9 - Show connected ships and companies\n" +
+                              "10 - Show grouped ships by their company\n" +
+                              "11 - Show ships which names start at \"А\" and \"Д\"\n" +
+                              "12 - Show average age of the ships\n" +
+                              "13 - Show the largest sea in the base\n" +
+                              "14 - Show whether all of the ships were build after The War 2\n" +
+                              "15 - Show ships after \"Lev Tolstoy\" one\n" +
+                              "q - Quit");
+            
+            while (true)
+            {
+                Console.WriteLine();
+                string input = Console.ReadLine();
+                Console.WriteLine();
+                
+                switch (input.ToLower())
+                {
+                    case "1":
+                        _transferInfo.SelectShips();
+                        break;
+
+                    case "2":
+                        _transferInfo.SelectLongRivers();
+                        break;
+
+                    case "3":
+                        _transferInfo.SelectOrderedCompanies();
+                        break;
+
+                    case "4":
+                        _transferInfo.SelectIsPassengerShip();
+                        break;
+
+                    case "5":
+                        _transferInfo.SelectWater();
+                        break;
+
+                    case "6":
+                        _transferInfo.SelectGroupShipsByYear();
+                        break;
+
+                    case "7":
+                        _transferInfo.SelectSeaCompanies();
+                        break;
+
+                    case "8":
+                        _transferInfo.SelectAllCompaniesWithShips();
+                        break;
+
+                    case "9":
+                        _transferInfo.SelectShipOfCompany();
+                        break;
+
+                    case "10":
+                        _transferInfo.SelectGroupShipsByCompanies();
+                        break;
+
+                    case "11":
+                        _transferInfo.SelectShipsUnion();
+                        break;
+
+                    case "12":
+                        _transferInfo.SelectAverageShipsAge();
+                        break;
+
+                    case "13":
+                        _transferInfo.SelectLargestSea();
+                        break;
+
+                    case "14":
+                        _transferInfo.SelectIfShipsAfterWar();
+                        break;
+
+                    case "15":
+                        _transferInfo.SelectSkipTo();
+                        break;
+
+                    case "q":
+                        return;
+
+                    default:
+                        ShowMenu();
+                        break;
+                }
+            }
+        }
+    }
+    
     public class River
     {
         public int Id { get; set; }
@@ -133,6 +246,7 @@ namespace ShipTransfer
             }
         }
 
+        // #2
         public void SelectLongRivers()
         {
             var longRivers = _rivers.Where(r => r.Length > 3000);
@@ -143,7 +257,7 @@ namespace ShipTransfer
             }
         }
 
-        // #2
+        // #3
         public void SelectOrderedCompanies()
         {
             var companies = _companies.OrderBy(c => c.Name);
@@ -154,6 +268,7 @@ namespace ShipTransfer
             }
         }
 
+        // #4
         public void SelectIsPassengerShip()
         {
             var ships = from ship in _ships
@@ -167,7 +282,7 @@ namespace ShipTransfer
             Console.WriteLine();
         }
         
-        // #3
+        // #5
         public void SelectWater()
         {
             var waters = _seas.Select(sea => sea.ToString())
@@ -179,6 +294,7 @@ namespace ShipTransfer
             }
         }
 
+        // #6
         public void SelectGroupShipsByYear()
         {
             var ships = from ship in _ships
@@ -199,7 +315,7 @@ namespace ShipTransfer
             }
         }
         
-        // #4 Inner join returns connected shipping and sea names
+        // #7 Inner join returns connected shipping and sea names
         public void SelectSeaCompanies()
         {
             var companies = from company in _companies
@@ -213,40 +329,41 @@ namespace ShipTransfer
             }
         }
         
-        // #5 Left-join
-        public void SelectAllShipsWithShippings()
+        // #8 Left-join
+        public void SelectAllCompaniesWithShips()
         {
-            var allShipsWithShippings = from ship in _ships
-                join link in _shipOfCompany on ship.Id equals link.ShipId into temp
+            var allCompaniesWithShips = from company in _companies
+                join link in _shipOfCompany on company.Id equals link.CompanyId into temp
                 from t1 in temp.DefaultIfEmpty()
-                join shipping in _companies on t1?.CompanyId equals shipping.Id into temp2
+                join ship in _ships on t1?.ShipId equals ship.Id into temp2
                 from t2 in temp2.DefaultIfEmpty()
-                select new {Ship = ship.Name, Shipping = (t2 == null) ? "null" : t2.Name};
+                select new {Company = company.Name, Ship = (t2 == null) ? "null" : t2.Name};
 
-            foreach (var tuple in allShipsWithShippings)
+            foreach (var tuple in allCompaniesWithShips)
             {
-                Console.WriteLine($"{tuple.Ship} - {tuple.Shipping}");
+                Console.WriteLine($"{tuple.Company} - {tuple.Ship}");
             }
 
         }
 
-        // #6 Many-to-many connection
-        public void SelectShipOfShipping()
+        // #9 Many-to-many connection
+        public void SelectShipOfCompany()
         {
-            var shipOfShipping = from ship in _ships
+            var shipOfCompany = from ship in _ships
                 join link in _shipOfCompany on ship.Id equals link.ShipId into temp
                 from t in temp
                 join shipping in _companies on t.CompanyId equals shipping.Id
-                select new {Ship = ship, Shipping = shipping};
+                select new {Ship = ship, Company = shipping};
 
-            foreach (var tuple in shipOfShipping)
+            foreach (var tuple in shipOfCompany)
             {
                 Console.WriteLine(tuple.Ship);
-                Console.WriteLine(tuple.Shipping);
+                Console.WriteLine(tuple.Company);
                 Console.WriteLine();
             }
         }
 
+        // #10
         public void SelectGroupShipsByCompanies()
         {
             var shipGroups = 
@@ -273,6 +390,7 @@ namespace ShipTransfer
             }
         }
 
+        // #11
         public void SelectShipsUnion()
         {
             var ships = 
@@ -290,7 +408,8 @@ namespace ShipTransfer
             Console.WriteLine();
         }
 
-        public void SelectAvarageShipsAge()
+        // #12
+        public void SelectAverageShipsAge()
         {
             int averageShipsAge = Convert.ToInt32(_ships.Average(ship => ship.Year));
             
@@ -298,6 +417,7 @@ namespace ShipTransfer
             Console.WriteLine();
         }
 
+        // #13
         public void SelectLargestSea()
         {
             var largestSea = _seas.Where(sea => sea.Square == _seas.Max(sea => sea.Square));
@@ -306,6 +426,7 @@ namespace ShipTransfer
             Console.WriteLine();
         }
 
+        // #14
         public void SelectIfShipsAfterWar()
         {
             bool ifShipsAfterWar = _ships.All(ship => ship.Year > 1945);
@@ -318,6 +439,7 @@ namespace ShipTransfer
             Console.WriteLine();
         }
 
+        // #15
         public void SelectSkipTo()
         {
             var ships = _ships.TakeWhile(ship => ship.Name != "Lev Tolstoy");
@@ -339,7 +461,8 @@ namespace ShipTransfer
         static void Main(string[] args)
         {
             var transferInfo = new TransferInfo();
-            transferInfo.SelectSkipTo();
+            IController controller = new ConsoleConroller(transferInfo);
+            controller.ShowMenu();
         }
     }
 }
