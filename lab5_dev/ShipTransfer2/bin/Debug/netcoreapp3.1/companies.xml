@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<companies>
+  <ship id="1">
+    <name>Black sea shipping</name>
+    <waterid>1</waterid>
+  </ship>
+  <ship id="2">
+    <name>Azov sea shipping</name>
+    <waterid>2</waterid>
+  </ship>
+  <ship id="3">
+    <name>Danubian shipping of Ukraine</name>
+    <waterid>3</waterid>
+  </ship>
+  <ship id="4">
+    <name>Volga shipping</name>
+    <waterid>4</waterid>
+  </ship>
+  <ship id="5">
+    <name>Southern shipping of Russia</name>
+    <waterid>4</waterid>
+  </ship>
+</companies>

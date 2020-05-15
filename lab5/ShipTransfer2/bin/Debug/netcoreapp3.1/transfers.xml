@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<info>
+  <ships>
+    <ship id="1">
+      <name>Leningorsk</name>
+      <year>1958</year>
+      <passengers>51</passengers>
+      <seatype>True</seatype>
+    </ship>
+    <ship id="2">
+      <name>Alupka</name>
+      <year>1965</year>
+      <passengers>212</passengers>
+      <seatype>True</seatype>
+    </ship>
+    <ship id="3">
+      <name>Kirgizstan</name>
+      <year>1963</year>
+      <passengers>316</passengers>
+      <seatype>True</seatype>
+    </ship>
+    <ship id="4">
+      <name>Мichael Kalinin</name>
+      <year>1964</year>
+      <passengers>333</passengers>
+      <seatype>True</seatype>
+    </ship>
+    <ship id="5">
+      <name>Astor</name>
+      <year>1986</year>
+      <passengers>650</passengers>
+      <seatype>True</seatype>
+    </ship>
+    <ship id="6">
+      <name>Lev Tolstoy</name>
+      <year>1981</year>
+      <passengers>710</passengers>
+      <seatype>True</seatype>
+    </ship>
+    <ship id="7">
+      <name>Nezhin</name>
+      <year>1954</year>
+      <passengers>54</passengers>
+      <seatype>True</seatype>
+    </ship>
+    <ship id="8">
+      <name>Admiral Lunin</name>
+      <year>1965</year>
+      <passengers>200</passengers>
+      <seatype>True</seatype>
+    </ship>
+    <ship id="9">
+      <name>Volna</name>
+      <year>1987</year>
+      <passengers>170</passengers>
+      <seatype>False</seatype>
+    </ship>
+    <ship id="10">
+      <name>ТМІ-4</name>
+      <year>1990</year>
+      <passengers>0</passengers>
+      <seatype>False</seatype>
+    </ship>
+    <ship id="11">
+      <name>RSD-44</name>
+      <year>2000</year>
+      <passengers>0</passengers>
+      <seatype>False</seatype>
+    </ship>
+    <ship id="12">
+      <name>Danubian</name>
+      <year>1980</year>
+      <passengers>0</passengers>
+      <seatype>False</seatype>
+    </ship>
+    <ship id="13">
+      <name>Pirogov</name>
+      <year>1963</year>
+      <passengers>100</passengers>
+      <seatype>False</seatype>
+    </ship>
+    <ship id="8">
+      <name>Aurora</name>
+      <year>1987</year>
+      <passengers>150</passengers>
+      <seatype>True</seatype>
+    </ship>
+  </ships>
+  <companies>
+    <company id="1">
+      <name>Black sea shipping</name>
+      <waterid>1</waterid>
+    </company>
+    <company id="2">
+      <name>Azov sea shipping</name>
+      <waterid>2</waterid>
+    </company>
+    <company id="3">
+      <name>Danubian shipping of Ukraine</name>
+      <waterid>3</waterid>
+    </company>
+    <company id="4">
+      <name>Volga shipping</name>
+      <waterid>4</waterid>
+    </company>
+    <company id="5">
+      <name>Southern shipping of Russia</name>
+      <waterid>4</waterid>
+    </company>
+    <company id="9">
+      <name>OOO</name>
+      <waterid>2</waterid>
+    </company>
+  </companies>
+  <links>
+    <link>
+      <shipid>2</shipid>
+      <companyid>1</companyid>
+    </link>
+    <link>
+      <shipid>3</shipid>
+      <companyid>1</companyid>
+    </link>
+    <link>
+      <shipid>4</shipid>
+      <companyid>1</companyid>
+    </link>
+    <link>
+      <shipid>5</shipid>
+      <companyid>1</companyid>
+    </link>
+    <link>
+      <shipid>6</shipid>
+      <companyid>1</companyid>
+    </link>
+    <link>
+      <shipid>7</shipid>
+      <companyid>1</companyid>
+    </link>
+    <link>
+      <shipid>7</shipid>
+      <companyid>2</companyid>
+    </link>
+    <link>
+      <shipid>8</shipid>
+      <companyid>2</companyid>
+    </link>
+    <link>
+      <shipid>9</shipid>
+      <companyid>2</companyid>
+    </link>
+    <link>
+      <shipid>9</shipid>
+      <companyid>3</companyid>
+    </link>
+    <link>
+      <shipid>10</shipid>
+      <companyid>3</companyid>
+    </link>
+    <link>
+      <shipid>10</shipid>
+      <companyid>4</companyid>
+    </link>
+    <link>
+      <shipid>11</shipid>
+      <companyid>3</companyid>
+    </link>
+    <link>
+      <shipid>11</shipid>
+      <companyid>4</companyid>
+    </link>
+    <link>
+      <shipid>12</shipid>
+      <companyid>4</companyid>
+    </link>
+    <link>
+      <shipid>8</shipid>
+      <companyid>9</companyid>
+    </link>
+  </links>
+  <rivers>
+    <river id="3">
+      <name>Danube</name>
+      <length>2860</length>
+      <maxwidth>150</maxwidth>
+      <tributaries>17</tributaries>
+    </river>
+    <river id="4">
+      <name>Volga</name>
+      <length>3530</length>
+      <maxwidth>40</maxwidth>
+      <tributaries>7</tributaries>
+    </river>
+    <river id="1">
+      <name>1</name>
+      <length>1</length>
+      <maxwidth>1</maxwidth>
+      <tributaries>1</tributaries>
+    </river>
+  </rivers>
+  <seas>
+    <sea id="1">
+      <name>Black sea</name>
+      <square>437000</square>
+    </sea>
+    <sea id="2">
+      <name>Azov sea</name>
+      <square>39000</square>
+    </sea>
+    <sea id="9">
+      <name>Midetterainian</name>
+      <square>500000</square>
+    </sea>
+  </seas>
+</info>

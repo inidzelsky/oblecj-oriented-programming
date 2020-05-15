@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<rivers>
+  <river id="3">
+    <name>Danube</name>
+    <length>2860</length>
+    <maxwidth>150</maxwidth>
+    <tributaries>17</tributaries>
+  </river>
+  <river id="4">
+    <name>Volga</name>
+    <length>3530</length>
+    <maxwidth>40</maxwidth>
+    <tributaries>7</tributaries>
+  </river>
+</rivers>
