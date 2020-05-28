@@ -7,7 +7,8 @@ namespace Post
     {
         static void Main(string[] args)
         {
-            DatabaseController dbcontroller = new DatabaseController("Host=localhost;Database=post;Username=postgres;Password=123456;Port=5432");
+            var connection = ConnectionHandler.GetInstance();
+            DatabaseController dbcontroller = new DatabaseController(connection);
             dbcontroller.MurzilkaSubscribers();
             dbcontroller.DistrictsCount();
             dbcontroller.SubscriptionsCount();

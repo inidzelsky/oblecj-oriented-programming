@@ -2,33 +2,32 @@ using System;
 using System.Data;
 using Npgsql;
 
-
 namespace Post
 {
     public class DatabaseController
     {
-        private string _connectionString;
+        private readonly NpgsqlConnection _connection;
 
-        public DatabaseController(string connectionString)
+        public DatabaseController(NpgsqlConnection connection)
         {
-            _connectionString = connectionString;
+            _connection = connection;
         }
         
         // #1
         public DataSet MurzilkaSubscribers()
         {
-            using (var connection = new NpgsqlConnection(_connectionString))
+            try
             {
-                connection.Open();
+                _connection.Open();
                 
                 NpgsqlCommand command = new NpgsqlCommand();
-                command.Connection = connection;
+                command.Connection = _connection;
                 command.CommandText = 
                     "select subscribers.subscriber_id, full_name " + 
                     "from subscribers, subscriptions "  +
                     "where subscribers.subscriber_id = subscriptions.subscriber_id " +
                     "and subscriptions.paper_cipher = " +
-                        "(select paper_cipher from papers where name='Murzilka')";
+                    "(select paper_cipher from papers where name='Murzilka')";
 
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                 DataSet ds = new DataSet();
@@ -36,30 +35,45 @@ namespace Post
                 
                 return ds;
             }
+            catch (Exception e)
+            {
+                throw new DataException(e.Message);
+            }
+            finally
+            {
+                _connection.Close();
+            }
         }
 
         // #2
         public int DistrictsCount()
         {
-            using (var connection = new NpgsqlConnection(_connectionString))
+            try
             {
-                connection.Open();
-                
+                _connection.Open();
+
                 NpgsqlCommand command = new NpgsqlCommand(
-                    "select count(*) from districts;", 
-                    connection);
+                    "select count(*) from districts",
+                    _connection);
 
                 return Convert.ToInt32(command.ExecuteScalar());
             }
+            catch (Exception e)
+            {
+                throw new DataException(e.Message);
+            }
+            finally
+            {
+                _connection.Close();
+            }
         }
         
+        // #3
         public DataSet StreetsInDistrict()
         {
-            var connection = new NpgsqlConnection(_connectionString);
-            DataSet ds = new DataSet();
             try
             {
-                connection.Open();
+                _connection.Open();
 
                 string sql =
                     "select district_name as district, count(street_id) as streets_count " +
@@ -68,57 +82,53 @@ namespace Post
                     "on d.district_id = s.district_id " +
                     "group by d.district_id";
                 
-                NpgsqlCommand command = new NpgsqlCommand(sql, connection);
+                NpgsqlCommand command = new NpgsqlCommand(sql, _connection);
                 
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+                DataSet ds = new DataSet();
                 adapter.Fill(ds);
+                
+                return ds;
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                throw new DataException(e.Message);
             }
             finally
             {
-                connection.Close();
+                _connection.Close();
             }
-            
-            return ds;
         }
         
+        // #4
         public decimal AvgCost()
         {
-            var connection = new NpgsqlConnection(_connectionString);
-            decimal result;
             try
             {
-                connection.Open();
+                _connection.Open();
 
                 NpgsqlCommand command = new NpgsqlCommand();
                 command.CommandText = "select avg(cast(cost as decimal)) from papers";
-                command.Connection = connection;
+                command.Connection = _connection;
 
-                result = (decimal) command.ExecuteScalar();
+                return (decimal) command.ExecuteScalar();
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
-                throw;
+                throw new DataException(e.Message);
             }
             finally
             {
-                connection.Close();
+                _connection.Close();
             }
-            
-            return result;
         }
         
-        // #3
+        // #5
         public DataSet SubscriptionsCount()
         {
-            using (var connection = new NpgsqlConnection(_connectionString))
+            try
             {
-                connection.Open();
+                _connection.Open();
 
                 string sql =
                     "select full_name as subscriber, count(subscriptions.paper_cipher) as subscriptions_count " +
@@ -127,23 +137,31 @@ namespace Post
                     "on subscribers.subscriber_id = subscriptions.subscriber_id " +
                     "group by subscribers.subscriber_id " +
                     "order by subscriptions_count;";
-                
-                NpgsqlCommand command = new NpgsqlCommand(sql, connection);
-                
+
+                NpgsqlCommand command = new NpgsqlCommand(sql, _connection);
+
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
 
                 return ds;
             }
+            catch (Exception e)
+            {
+                throw new DataException(e.Message);
+            }
+            finally
+            {
+                _connection.Close();
+            }
         }
         
-        // #4
+        // #6
         public DataSet DistrictAndPostmen()
         {
-            using (var connection = new NpgsqlConnection(_connectionString))
+            try
             {
-                connection.Open();
+                _connection.Open();
 
                 string sql =
                     "select full_name, district_name, postman " +
@@ -155,7 +173,7 @@ namespace Post
                     "inner join districts " +
                     "on streets.district_id = districts.district_id;";
                 
-                NpgsqlCommand command = new NpgsqlCommand(sql, connection);
+                NpgsqlCommand command = new NpgsqlCommand(sql, _connection);
                 
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                 DataSet ds = new DataSet();
@@ -163,15 +181,23 @@ namespace Post
 
                 return ds;
             }
+            catch (Exception e)
+            {
+                throw new DataException(e.Message);
+            }
+            finally
+            {
+                _connection.Close();
+            }
         }
         
-        // #5
+        // #7
 
         public DataSet AddressesAndPapers()
         {
-            using (var connection = new NpgsqlConnection(_connectionString))
+            try
             {
-                connection.Open();
+                _connection.Open();
 
                 string sql =
                     "select street_name || ' ' || a.number as Address, papers.name as Paper " +
@@ -185,89 +211,109 @@ namespace Post
                     "inner join streets s3 " +
                     "on a.street_id = s3.street_id;";
                 
-                NpgsqlCommand command = new NpgsqlCommand(sql, connection);
+                NpgsqlCommand command = new NpgsqlCommand(sql, _connection);
                 
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
 
                 return ds;
-            }
-        }
-        
-        
-
-
-
-        // #6
-        public decimal GetBill(int sId)
-        {
-            using (var connection = new NpgsqlConnection(_connectionString))
-            {
-                connection.Open();
-
-                NpgsqlCommand command = new NpgsqlCommand("get_bill", connection);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("s_id", sId);
-                
-                var result = command.ExecuteScalar();
-                if (result.GetType() == Type.GetType("System.DBNull"))
-                    return 0;
-                
-                return Convert.ToDecimal(result);
-            }
-        }
-
-        // #7
-        public DataSet PaperSubscribers(string pCipher)
-        {
-            using (var connection = new NpgsqlConnection(_connectionString))
-            {
-                connection.Open();
-
-                NpgsqlCommand command = new NpgsqlCommand("get_subs", connection);
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("p_cipher", pCipher);
-                
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
-                
-                return ds;
-            }
-        }
-
-        // #8
-        public DataSet IncreaseCost()
-        {
-            var connection = new NpgsqlConnection(_connectionString);
-            DataSet ds = new DataSet();
-            
-            try
-            {
-                connection.Open();
-                var transaction = connection.BeginTransaction();
-
-                NpgsqlCommand command1 = new NpgsqlCommand("update papers set cost = cost + cast (5 as money)", connection);
-                command1.Transaction = transaction;
-                command1.ExecuteNonQuery();
-
-                NpgsqlCommand command2 = new NpgsqlCommand("select * from papers", connection);
-                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command2);
-                adapter.Fill(ds);
-
-                transaction.Rollback();
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                throw new DataException(e.Message);
             }
             finally
             {
-                connection.Close();
+                _connection.Close();
+            }
+        }
+        
+
+        // #8
+        public decimal GetBill(int sId)
+        {
+            try
+            {
+                _connection.Open();
+
+                NpgsqlCommand command = new NpgsqlCommand("get_bill", _connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("s_id", sId);
+
+                var result = command.ExecuteScalar();
+                if (result.GetType() == Type.GetType("System.DBNull"))
+                    return 0;
+
+                return Convert.ToDecimal(result);
+            }
+            catch (Exception e)
+            {
+                throw new DataException(e.Message);
+            }
+            finally
+            {
+                _connection.Close();
             }
             
-            return ds;
+        }
+
+        // #9
+        public DataSet PaperSubscribers(string pCipher)
+        {
+            try
+            {
+                _connection.Open();
+
+                NpgsqlCommand command = new NpgsqlCommand("get_subs", _connection);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("p_cipher", pCipher);
+
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+
+                return ds;
+            }
+            catch (Exception e)
+            {
+                throw new DataException(e.Message);
+            }
+            finally
+            {
+                _connection.Close();
+            }
+        }
+
+        // #10
+        public DataSet IncreaseCost()
+        {
+            try
+            {
+                _connection.Open();
+                var transaction = _connection.BeginTransaction();
+
+                NpgsqlCommand command1 = new NpgsqlCommand("update papers set cost = cost + cast (5 as money)", _connection);
+                command1.Transaction = transaction;
+                command1.ExecuteNonQuery();
+
+                NpgsqlCommand command2 = new NpgsqlCommand("select * from papers", _connection);
+                NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command2);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+
+                transaction.Rollback(); // #TODO Change the transaction call on .Commit()
+
+                return ds;
+            }
+            catch (Exception e)
+            {
+                throw new DataException(e.Message);
+            }
+            finally
+            {
+                _connection.Close();
+            }
         }
     }
 }
