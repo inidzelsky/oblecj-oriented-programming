@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Hle9gN8ZPhdYhbHouH8+bCcI3Basd/w2s9Vmo+4zzIXUx2wulgfsDUZGZuWFCTIQ4+IEmXAoFvd6ctNYUYU7zw==",
+  "success": true,
+  "projectFilePath": "/Users/bismarck/Dropbox/Study/OOP/lab6/Post/Post/Post.csproj",
+  "expectedPackageFiles": [
+    "/Users/bismarck/.nuget/packages/npgsql/4.1.3.1/npgsql.4.1.3.1.nupkg.sha512",
+    "/Users/bismarck/.nuget/packages/system.runtime.compilerservices.unsafe/4.6.0/system.runtime.compilerservices.unsafe.4.6.0.nupkg.sha512"
+  ],
+  "logs": []
+}
