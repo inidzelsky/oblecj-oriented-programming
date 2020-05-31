@@ -1,3 +1,4 @@
+using System;
 using Npgsql;
 
 namespace Post
@@ -15,7 +16,11 @@ namespace Post
         public static NpgsqlConnection GetInstance()
         {
             if (_connectionHandler == null)
-                _connectionHandler = new ConnectionHandler("Host=localhost;Database=post;Username=postgres;Password=123456;Port=5432");
+            {
+                string connectionString = ConfigReader.ReadConnectionString();
+
+                _connectionHandler = new ConnectionHandler(connectionString);
+            }
 
             return _connectionHandler._connection;
         }

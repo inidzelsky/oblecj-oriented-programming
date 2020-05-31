@@ -32,7 +32,7 @@ namespace Post
                 connection.Close();
             }
         }
-        
+
         public static void CreateStreet(NpgsqlConnection connection, int districtId, string streetName)
         {
             try
@@ -59,7 +59,7 @@ namespace Post
                 connection.Close();
             }
         }
-        
+
         public static void CreateAddress(NpgsqlConnection connection, int streetId, string number)
         {
             try
@@ -86,7 +86,7 @@ namespace Post
                 connection.Close();
             }
         }
-        
+
         public static void CreateSubscriber(NpgsqlConnection connection, int addressId, string fullName)
         {
             try
@@ -128,7 +128,7 @@ namespace Post
 
                 NpgsqlParameter nameParam = new NpgsqlParameter("@name", name);
                 command.Parameters.Add(nameParam);
-                
+
                 NpgsqlParameter costParam = new NpgsqlParameter("@cost", cost);
                 command.Parameters.Add(costParam);
 
@@ -143,14 +143,15 @@ namespace Post
                 connection.Close();
             }
         }
-        
+
         public static void CreateSubscription(NpgsqlConnection connection, string paperCipher, int subscriberId)
         {
             try
             {
                 connection.Open();
 
-                string sql = "insert into subscriptions (paper_cipher, subscriber_id) values (@paper_cipher, @subscriber_id)";
+                string sql =
+                    "insert into subscriptions (paper_cipher, subscriber_id) values (@paper_cipher, @subscriber_id)";
                 NpgsqlCommand command = new NpgsqlCommand(sql, connection);
 
                 NpgsqlParameter paperCipherParam = new NpgsqlParameter("@paper_cipher", paperCipher);
@@ -170,6 +171,5 @@ namespace Post
                 connection.Close();
             }
         }
-        
     }
 }

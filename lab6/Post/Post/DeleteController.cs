@@ -29,7 +29,7 @@ namespace Post
                 connection.Close();
             }
         }
-        
+
         public static void DeleteStreet(NpgsqlConnection connection, int streetId)
         {
             try
@@ -53,7 +53,7 @@ namespace Post
                 connection.Close();
             }
         }
-        
+
         public static void DeleteAddress(NpgsqlConnection connection, int addressId)
         {
             try
@@ -77,7 +77,7 @@ namespace Post
                 connection.Close();
             }
         }
-        
+
         public static void DeleteSubscriber(NpgsqlConnection connection, int subscriberId)
         {
             try
@@ -113,7 +113,7 @@ namespace Post
 
                 NpgsqlParameter paperCipherParam = new NpgsqlParameter("@paper_cipher", paperCipher);
                 command.Parameters.Add(paperCipherParam);
-                
+
                 command.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -125,14 +125,15 @@ namespace Post
                 connection.Close();
             }
         }
-        
+
         public static void DeleteSubscription(NpgsqlConnection connection, string paperCipher, int subscriberId)
         {
             try
             {
                 connection.Open();
 
-                string sql = "delete from subscriptions where (paper_cipher=@paper_cipher and subscriber_id= @subscriber_id)";
+                string sql =
+                    "delete from subscriptions where (paper_cipher=@paper_cipher and subscriber_id= @subscriber_id)";
                 NpgsqlCommand command = new NpgsqlCommand(sql, connection);
 
                 NpgsqlParameter paperCipherParam = new NpgsqlParameter("@paper_cipher", paperCipher);

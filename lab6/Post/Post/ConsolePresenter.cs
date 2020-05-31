@@ -109,7 +109,8 @@ namespace Post
 
                     Console.WriteLine();
 
-                    CreateController.CreateSubscription(ConnectionHandler.GetInstance(), paperCipherForeign, subscriberIdForeign);
+                    CreateController.CreateSubscription(ConnectionHandler.GetInstance(), paperCipherForeign,
+                        subscriberIdForeign);
                     break;
 
                 case "b":
@@ -193,7 +194,8 @@ namespace Post
 
                     Console.WriteLine();
 
-                    DeleteController.DeleteSubscription(ConnectionHandler.GetInstance(), paperCipherForeign, subscriberIdForeign);
+                    DeleteController.DeleteSubscription(ConnectionHandler.GetInstance(), paperCipherForeign,
+                        subscriberIdForeign);
                     break;
 
                 case "b":
@@ -255,7 +257,8 @@ namespace Post
 
                     Console.WriteLine();
 
-                    UpdateController.UpdateStreet(ConnectionHandler.GetInstance(), streetId, districtIdForeign, streetName);
+                    UpdateController.UpdateStreet(ConnectionHandler.GetInstance(), streetId, districtIdForeign,
+                        streetName);
                     break;
 
                 case "3":
@@ -274,7 +277,8 @@ namespace Post
 
                     Console.WriteLine();
 
-                    UpdateController.UpdateAddress(ConnectionHandler.GetInstance(), addressId, streetIdForeign, addressNumber);
+                    UpdateController.UpdateAddress(ConnectionHandler.GetInstance(), addressId, streetIdForeign,
+                        addressNumber);
                     break;
 
                 case "4":
@@ -291,7 +295,8 @@ namespace Post
                     Console.WriteLine("Enter the new subscriber`s full name:");
                     string subscriberFullName = Console.ReadLine();
 
-                    UpdateController.UpdateSubscriber(ConnectionHandler.GetInstance(), subscriberId, addressIdForeign, subscriberFullName);
+                    UpdateController.UpdateSubscriber(ConnectionHandler.GetInstance(), subscriberId, addressIdForeign,
+                        subscriberFullName);
                     break;
 
                 case "5":
@@ -419,7 +424,8 @@ namespace Post
                     break;
 
                 case "6":
-                    DataSet subscriberAndPostman = QueriesController.DistrictAndPostmen(ConnectionHandler.GetInstance());
+                    DataSet subscriberAndPostman =
+                        QueriesController.DistrictAndPostmen(ConnectionHandler.GetInstance());
 
                     Console.WriteLine("Subscribers and their postmen:");
 
@@ -462,10 +468,10 @@ namespace Post
                     Console.WriteLine("Enter the subscriber id to get a bill: ");
                     int subscriberId = Int32.Parse(Console.ReadLine());
 
-                    Console.ReadLine();
+                    Console.WriteLine();
 
                     decimal bill = QueriesController.GetBill(ConnectionHandler.GetInstance(), subscriberId);
-                    Console.WriteLine($"The bill of the subscriber with id \"{subscriberId}\" is: {bill}$\n");
+                    Console.WriteLine($"The bill of the subscriber with the id \"{subscriberId}\" is: {bill}$\n");
 
                     break;
 
@@ -514,9 +520,11 @@ namespace Post
                     Console.WriteLine();
                     break;
 
-                case "q":
+                case "b":
                     return;
             }
+
+            ShowQueryMenu();
         }
 
 

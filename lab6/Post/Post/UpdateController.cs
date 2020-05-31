@@ -6,18 +6,20 @@ namespace Post
 {
     public class UpdateController
     {
-        public static void UpdateDistrict(NpgsqlConnection connection, int districtId, string districtName, string postman)
+        public static void UpdateDistrict(NpgsqlConnection connection, int districtId, string districtName,
+            string postman)
         {
             try
             {
                 connection.Open();
 
-                string sql = "update districts set district_name = @district_name, postman = @postman where district_id = @district_id";
+                string sql =
+                    "update districts set district_name = @district_name, postman = @postman where district_id = @district_id";
                 NpgsqlCommand command = new NpgsqlCommand(sql, connection);
 
                 NpgsqlParameter districtIdParam = new NpgsqlParameter("@district_id", districtId);
                 command.Parameters.Add(districtIdParam);
-                
+
                 NpgsqlParameter districtNameParam = new NpgsqlParameter("@district_name", districtName);
                 command.Parameters.Add(districtNameParam);
 
@@ -35,19 +37,20 @@ namespace Post
                 connection.Close();
             }
         }
-        
+
         public static void UpdateStreet(NpgsqlConnection connection, int streetId, int districtId, string streetName)
         {
             try
             {
                 connection.Open();
 
-                string sql = "update streets set district_id=@district_id, street_name=@street_name _where street_id=@street_id";
+                string sql =
+                    "update streets set district_id=@district_id, street_name=@street_name _where street_id=@street_id";
                 NpgsqlCommand command = new NpgsqlCommand(sql, connection);
 
                 NpgsqlParameter streetIdParam = new NpgsqlParameter("@street_id", streetId);
                 command.Parameters.Add(streetIdParam);
-                
+
                 NpgsqlParameter districtIdParam = new NpgsqlParameter("@district_id", districtId);
                 command.Parameters.Add(districtIdParam);
 
@@ -65,7 +68,7 @@ namespace Post
                 connection.Close();
             }
         }
-        
+
         public static void UpdateAddress(NpgsqlConnection connection, int addressId, int streetId, string number)
         {
             try
@@ -77,7 +80,7 @@ namespace Post
 
                 NpgsqlParameter addressIdParam = new NpgsqlParameter("@address_id", addressId);
                 command.Parameters.Add(addressIdParam);
-                
+
                 NpgsqlParameter streetIdParam = new NpgsqlParameter("@street_id", streetId);
                 command.Parameters.Add(streetIdParam);
 
@@ -95,19 +98,21 @@ namespace Post
                 connection.Close();
             }
         }
-        
-        public static void UpdateSubscriber(NpgsqlConnection connection, int subscriberId, int addressId, string fullName)
+
+        public static void UpdateSubscriber(NpgsqlConnection connection, int subscriberId, int addressId,
+            string fullName)
         {
             try
             {
                 connection.Open();
 
-                string sql = "update subscribers set address_id=@address_id, full_name=@full_name where subscriber_id=@subscriber_id";
+                string sql =
+                    "update subscribers set address_id=@address_id, full_name=@full_name where subscriber_id=@subscriber_id";
                 NpgsqlCommand command = new NpgsqlCommand(sql, connection);
 
                 NpgsqlParameter subscriberIdParam = new NpgsqlParameter("@subscriber_id", subscriberId);
                 command.Parameters.Add(subscriberIdParam);
-                
+
                 NpgsqlParameter addressIdParam = new NpgsqlParameter("@address_id", addressId);
                 command.Parameters.Add(addressIdParam);
 
@@ -140,7 +145,7 @@ namespace Post
 
                 NpgsqlParameter nameParam = new NpgsqlParameter("@name", name);
                 command.Parameters.Add(nameParam);
-                
+
                 NpgsqlParameter costParam = new NpgsqlParameter("@cost", cost);
                 command.Parameters.Add(costParam);
 

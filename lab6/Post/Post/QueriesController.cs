@@ -12,12 +12,12 @@ namespace Post
             try
             {
                 connection.Open();
-                
+
                 NpgsqlCommand command = new NpgsqlCommand();
                 command.Connection = connection;
-                command.CommandText = 
-                    "select subscribers.subscriber_id, full_name " + 
-                    "from subscribers, subscriptions "  +
+                command.CommandText =
+                    "select subscribers.subscriber_id, full_name " +
+                    "from subscribers, subscriptions " +
                     "where subscribers.subscriber_id = subscriptions.subscriber_id " +
                     "and subscriptions.paper_cipher = " +
                     "(select paper_cipher from papers where name='Murzilka')";
@@ -25,7 +25,7 @@ namespace Post
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
-                
+
                 return ds;
             }
             catch (Exception e)
@@ -60,7 +60,7 @@ namespace Post
                 connection.Close();
             }
         }
-        
+
         // #3
         public static DataSet StreetsInDistrict(NpgsqlConnection connection)
         {
@@ -74,13 +74,13 @@ namespace Post
                     "inner join streets s " +
                     "on d.district_id = s.district_id " +
                     "group by d.district_id";
-                
+
                 NpgsqlCommand command = new NpgsqlCommand(sql, connection);
-                
+
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
-                
+
                 return ds;
             }
             catch (Exception e)
@@ -92,7 +92,7 @@ namespace Post
                 connection.Close();
             }
         }
-        
+
         // #4
         public static decimal AvgCost(NpgsqlConnection connection)
         {
@@ -115,7 +115,7 @@ namespace Post
                 connection.Close();
             }
         }
-        
+
         // #5
         public static DataSet SubscriptionsCount(NpgsqlConnection connection)
         {
@@ -148,7 +148,7 @@ namespace Post
                 connection.Close();
             }
         }
-        
+
         // #6
         public static DataSet DistrictAndPostmen(NpgsqlConnection connection)
         {
@@ -165,9 +165,9 @@ namespace Post
                     "on addresses.street_id = streets.street_id " +
                     "inner join districts " +
                     "on streets.district_id = districts.district_id;";
-                
+
                 NpgsqlCommand command = new NpgsqlCommand(sql, connection);
-                
+
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
@@ -183,7 +183,7 @@ namespace Post
                 connection.Close();
             }
         }
-        
+
         // #7
 
         public static DataSet AddressesAndPapers(NpgsqlConnection connection)
@@ -203,9 +203,9 @@ namespace Post
                     "on s2.address_id = a.address_id " +
                     "inner join streets s3 " +
                     "on a.street_id = s3.street_id;";
-                
+
                 NpgsqlCommand command = new NpgsqlCommand(sql, connection);
-                
+
                 NpgsqlDataAdapter adapter = new NpgsqlDataAdapter(command);
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
@@ -221,7 +221,7 @@ namespace Post
                 connection.Close();
             }
         }
-        
+
 
         // #8
         public static decimal GetBill(NpgsqlConnection connection, int sId)
@@ -248,7 +248,6 @@ namespace Post
             {
                 connection.Close();
             }
-            
         }
 
         // #9
@@ -286,7 +285,8 @@ namespace Post
                 connection.Open();
                 var transaction = connection.BeginTransaction();
 
-                NpgsqlCommand command1 = new NpgsqlCommand("update papers set cost = cost + cast (5 as money)", connection);
+                NpgsqlCommand command1 =
+                    new NpgsqlCommand("update papers set cost = cost + cast (5 as money)", connection);
                 command1.Transaction = transaction;
                 command1.ExecuteNonQuery();
 
