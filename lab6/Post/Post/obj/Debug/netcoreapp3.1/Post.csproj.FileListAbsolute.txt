@@ -1,0 +1,13 @@
+/Users/bismarck/Dropbox/Study/OOP/lab6/Post/Post/bin/Debug/netcoreapp3.1/Post
+/Users/bismarck/Dropbox/Study/OOP/lab6/Post/Post/bin/Debug/netcoreapp3.1/Post.deps.json
+/Users/bismarck/Dropbox/Study/OOP/lab6/Post/Post/bin/Debug/netcoreapp3.1/Post.runtimeconfig.json
+/Users/bismarck/Dropbox/Study/OOP/lab6/Post/Post/bin/Debug/netcoreapp3.1/Post.runtimeconfig.dev.json
+/Users/bismarck/Dropbox/Study/OOP/lab6/Post/Post/bin/Debug/netcoreapp3.1/Post.dll
+/Users/bismarck/Dropbox/Study/OOP/lab6/Post/Post/bin/Debug/netcoreapp3.1/Post.pdb
+/Users/bismarck/Dropbox/Study/OOP/lab6/Post/Post/bin/Debug/netcoreapp3.1/Npgsql.dll
+/Users/bismarck/Dropbox/Study/OOP/lab6/Post/Post/obj/Debug/netcoreapp3.1/Post.csprojAssemblyReference.cache
+/Users/bismarck/Dropbox/Study/OOP/lab6/Post/Post/obj/Debug/netcoreapp3.1/Post.AssemblyInfoInputs.cache
+/Users/bismarck/Dropbox/Study/OOP/lab6/Post/Post/obj/Debug/netcoreapp3.1/Post.AssemblyInfo.cs
+/Users/bismarck/Dropbox/Study/OOP/lab6/Post/Post/obj/Debug/netcoreapp3.1/Post.csproj.CopyComplete
+/Users/bismarck/Dropbox/Study/OOP/lab6/Post/Post/obj/Debug/netcoreapp3.1/Post.dll
+/Users/bismarck/Dropbox/Study/OOP/lab6/Post/Post/obj/Debug/netcoreapp3.1/Post.pdb
