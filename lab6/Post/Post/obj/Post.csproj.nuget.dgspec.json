@@ -14,7 +14,7 @@
         "outputPath": "/Users/bismarck/Dropbox/Study/OOP/lab6/Post/Post/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/bismarck/.nuget/NuGet/NuGet.Config"
+          "/Users/bismarck/.config/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

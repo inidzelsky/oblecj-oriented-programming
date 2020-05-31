@@ -1,0 +1,23 @@
+﻿<Properties StartupConfiguration="{579AF2FA-0410-473C-BBC2-C37DFF3DD809}|Default">
+  <MonoDevelop.Ide.ItemProperties.Post PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Post/Program.cs">
+    <Files>
+      <File FileName="Post/Program.cs" Line="6" Column="18" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Post" expanded="True">
+            <Node name="Post" expanded="True" selected="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

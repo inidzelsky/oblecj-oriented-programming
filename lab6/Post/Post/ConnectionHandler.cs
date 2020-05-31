@@ -5,7 +5,7 @@ namespace Post
     public class ConnectionHandler
     {
         private static ConnectionHandler _connectionHandler;
-        private NpgsqlConnection _connection;
+        private readonly NpgsqlConnection _connection;
 
         private ConnectionHandler(string connectionString)
         {
